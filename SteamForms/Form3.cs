@@ -47,7 +47,7 @@ namespace SteamForms
         private void btnNews_Click(object sender, EventArgs e)
         {
             Hide();
-            new WndwNews(280).ShowDialog();
+            new WndwNews().ShowDialog();
             Show();
         }
 

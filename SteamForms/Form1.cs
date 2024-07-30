@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
-using static System.Windows.Forms.LinkLabel;
 
 namespace SteamForms
 {
@@ -11,30 +11,28 @@ namespace SteamForms
     {
         private JArray newsEntrys;
         private int currentDisplay = 0;
-        private readonly int gameId;
         private const int numberOfResults = 5;
 
-        public WndwNews(int pGameId)
+        public WndwNews()
         {
             InitializeComponent();
-            gameId = pGameId;
         }
         private void WndwMain_Shown(object sender, EventArgs e)
         {
-            string link = @"https://store.steampowered.com/api/appdetails?appids=" + gameId;
-            WebRequest webRequest = WebRequest.Create(link);
-            using (WebResponse response = webRequest.GetResponse())
-            using (Stream content = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(content))
+            ActiveForm.Text = $"Steam News Helper";
+
+            foreach(Game game in WndwMain.games)
             {
-                JToken gameInfo = JObject.Parse(reader.ReadToEnd())[gameId.ToString()];
-                if ((bool)gameInfo["success"]) ActiveForm.Text = $"Steam Updates for {gameInfo["data"]["name"]}";
+                dpdnGame.Items.Add(game.AppId);
             }
+
+            dpdnGame.SelectedIndex = 0;
+            LoadGameData(WndwMain.games[0].AppId);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void LoadGameData(int appId)
         {
-            string link = @"http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=" + gameId.ToString() + $"&count={numberOfResults}";
+            string link = @"http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=" + appId.ToString() + $"&count={numberOfResults}";
             WebRequest webRequest = WebRequest.Create(link);
 
             using (WebResponse response = webRequest.GetResponse())
@@ -63,19 +61,15 @@ namespace SteamForms
             lblProgress.Text = $"{i + 1}/{numberOfResults}";
         }
 
-        private void btnPrev_Click(object sender, EventArgs e)
-        {
+        private void btnPrev_Click(object sender, EventArgs e) => 
             DisplayNewsElement(currentDisplay - 1);
-        }
 
-        private void btnNext_Click(object sender, EventArgs e)
-        {
+        private void btnNext_Click(object sender, EventArgs e) =>
             DisplayNewsElement(currentDisplay + 1);
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void button1_Click(object sender, EventArgs e) => Close();
+
+        private void dpdnGame_SelectedIndexChanged(object sender, EventArgs e) =>
+            LoadGameData((int)dpdnGame.Items[dpdnGame.SelectedIndex]);
     }
 }

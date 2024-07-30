@@ -36,6 +36,8 @@
             this.lblProgress = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.rtbxMain = new System.Windows.Forms.RichTextBox();
+            this.dpdnGame = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -116,11 +118,31 @@
             this.rtbxMain.TabIndex = 8;
             this.rtbxMain.Text = "Test. \\bTest in dick \\b0";
             // 
+            // dpdnGame
+            // 
+            this.dpdnGame.FormattingEnabled = true;
+            this.dpdnGame.Location = new System.Drawing.Point(145, 14);
+            this.dpdnGame.Name = "dpdnGame";
+            this.dpdnGame.Size = new System.Drawing.Size(293, 21);
+            this.dpdnGame.TabIndex = 9;
+            this.dpdnGame.SelectedIndexChanged += new System.EventHandler(this.dpdnGame_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Selected Game";
+            // 
             // WndwNews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dpdnGame);
             this.Controls.Add(this.rtbxMain);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblProgress);
@@ -131,7 +153,6 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "WndwNews";
             this.Text = "SteamUpdates";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.WndwMain_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,6 +169,8 @@
         private System.Windows.Forms.Label lblProgress;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.RichTextBox rtbxMain;
+        private System.Windows.Forms.ComboBox dpdnGame;
+        private System.Windows.Forms.Label label1;
     }
 }
 
