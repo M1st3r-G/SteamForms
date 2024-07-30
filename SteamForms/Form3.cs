@@ -18,7 +18,6 @@ namespace SteamForms
         public WndwMain()
         {
             InitializeComponent();
-            
         }
 
         private void syncLibrary()
@@ -35,9 +34,7 @@ namespace SteamForms
                 JArray gamesAsJArray = (JArray)jresponse["games"];
                 games = (from JToken item in gamesAsJArray
                          select new Game((int)item["appid"], (int)item["playtime_forever"], (long)item["rtime_last_played"])).ToArray();
-
             }
-
         }
 
         private void btnLibrary_Click(object sender, EventArgs e)
