@@ -40,6 +40,8 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.grpStats = new System.Windows.Forms.GroupBox();
+            this.lblAchievmentUser1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblPlaytimeOwn = new System.Windows.Forms.Label();
             this.grpGameinfos = new System.Windows.Forms.GroupBox();
@@ -48,13 +50,15 @@
             this.picGame = new System.Windows.Forms.PictureBox();
             this.btnPrev = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblPlaytimeFriend = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblAchievmentUser1 = new System.Windows.Forms.Label();
             this.lblAchievmentUser2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPlaytimeFriend = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.tbxShameUser1 = new System.Windows.Forms.TextBox();
+            this.tbxShameUser2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgUser1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUser2)).BeginInit();
             this.grpStats.SuspendLayout();
@@ -176,6 +180,24 @@
             this.grpStats.TabStop = false;
             this.grpStats.Text = "My Stats";
             // 
+            // lblAchievmentUser1
+            // 
+            this.lblAchievmentUser1.AutoSize = true;
+            this.lblAchievmentUser1.Location = new System.Drawing.Point(14, 82);
+            this.lblAchievmentUser1.Name = "lblAchievmentUser1";
+            this.lblAchievmentUser1.Size = new System.Drawing.Size(48, 13);
+            this.lblAchievmentUser1.TabIndex = 4;
+            this.lblAchievmentUser1.Text = "100/100";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Achievements";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -257,42 +279,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Friend Stats";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "TotalPlaytime";
-            // 
-            // lblPlaytimeFriend
-            // 
-            this.lblPlaytimeFriend.AutoSize = true;
-            this.lblPlaytimeFriend.Location = new System.Drawing.Point(16, 46);
-            this.lblPlaytimeFriend.Name = "lblPlaytimeFriend";
-            this.lblPlaytimeFriend.Size = new System.Drawing.Size(46, 13);
-            this.lblPlaytimeFriend.TabIndex = 0;
-            this.lblPlaytimeFriend.Text = "Playtime";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Achievements";
-            // 
-            // lblAchievmentUser1
-            // 
-            this.lblAchievmentUser1.AutoSize = true;
-            this.lblAchievmentUser1.Location = new System.Drawing.Point(14, 82);
-            this.lblAchievmentUser1.Name = "lblAchievmentUser1";
-            this.lblAchievmentUser1.Size = new System.Drawing.Size(48, 13);
-            this.lblAchievmentUser1.TabIndex = 4;
-            this.lblAchievmentUser1.Text = "100/100";
-            // 
             // lblAchievmentUser2
             // 
             this.lblAchievmentUser2.AutoSize = true;
@@ -311,6 +297,24 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Achievements";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "TotalPlaytime";
+            // 
+            // lblPlaytimeFriend
+            // 
+            this.lblPlaytimeFriend.AutoSize = true;
+            this.lblPlaytimeFriend.Location = new System.Drawing.Point(16, 46);
+            this.lblPlaytimeFriend.Name = "lblPlaytimeFriend";
+            this.lblPlaytimeFriend.Size = new System.Drawing.Size(46, 13);
+            this.lblPlaytimeFriend.TabIndex = 0;
+            this.lblPlaytimeFriend.Text = "Playtime";
+            // 
             // lblError
             // 
             this.lblError.AutoSize = true;
@@ -319,11 +323,49 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 15;
             // 
+            // tbxShameUser1
+            // 
+            this.tbxShameUser1.Location = new System.Drawing.Point(86, 135);
+            this.tbxShameUser1.Name = "tbxShameUser1";
+            this.tbxShameUser1.ReadOnly = true;
+            this.tbxShameUser1.Size = new System.Drawing.Size(42, 20);
+            this.tbxShameUser1.TabIndex = 16;
+            // 
+            // tbxShameUser2
+            // 
+            this.tbxShameUser2.Location = new System.Drawing.Point(624, 135);
+            this.tbxShameUser2.Name = "tbxShameUser2";
+            this.tbxShameUser2.ReadOnly = true;
+            this.tbxShameUser2.Size = new System.Drawing.Size(42, 20);
+            this.tbxShameUser2.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(134, 138);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Pile of Shame";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(549, 138);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Pile of Shame";
+            // 
             // WndwCompare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbxShameUser2);
+            this.Controls.Add(this.tbxShameUser1);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnNext);
@@ -386,5 +428,9 @@
         private System.Windows.Forms.Label lblAchievmentUser2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.TextBox tbxShameUser1;
+        private System.Windows.Forms.TextBox tbxShameUser2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

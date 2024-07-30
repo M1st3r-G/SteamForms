@@ -128,6 +128,9 @@ namespace SteamForms
                 Game[] friendGames = (from JToken item in gamesAsJArray
                          select new Game((int)item["appid"], (int)item["playtime_forever"], 0)).ToArray();
 
+                tbxShameUser1.Text = WndwMain.games.Where(g => g.PlaytimeForever == 0).ToArray().Length.ToString();
+                tbxShameUser2.Text = friendGames.Where(g=>g.PlaytimeForever==0).ToArray().Length.ToString();
+
                 tbxNumberUser2.Text = friendGames.Length.ToString();
                 sharedGames = friendGames.Where(g => WndwMain.games.Contains(g, new GameComparer())).ToArray(); 
             }
