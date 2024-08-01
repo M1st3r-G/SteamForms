@@ -4,7 +4,6 @@ using System.IO;
 using System.Net;
 using System.Windows.Forms;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace SteamForms
 {
@@ -22,7 +21,7 @@ namespace SteamForms
 
         private void syncLibrary()
         {
-            string link = @"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" + ApiKey + "&steamid=" + PlayerID.ToString() + "&format=json";
+            string link = @"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" + ApiKey + "&steamid=" + PlayerID.ToString() + "&include_appinfo=true&include_played_free&format=json";
             WebRequest webRequest = WebRequest.Create(link);
 
             using (WebResponse response = webRequest.GetResponse())
@@ -33,7 +32,7 @@ namespace SteamForms
                 JObject jresponse = (JObject)JObject.Parse(strContent)["response"];
                 JArray gamesAsJArray = (JArray)jresponse["games"];
                 games = (from JToken item in gamesAsJArray
-                         select new Game((int)item["appid"], (int)item["playtime_forever"], (long)item["rtime_last_played"])).ToArray();
+                         select new Game((int)item["appid"],(string)item["name"], (int)item["playtime_forever"], (long)item["rtime_last_played"])).ToArray();
             }
         }
 

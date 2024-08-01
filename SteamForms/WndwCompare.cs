@@ -114,7 +114,7 @@ namespace SteamForms
 
         private void UpdateSharedGames(long friendId)
         {
-            string otherGames = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" + WndwSettings.CurrentSettings.ApiKey + "&steamid=" + friendId + "&format=json";
+            string otherGames = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" + WndwSettings.CurrentSettings.ApiKey + "&steamid=" + friendId + "&include_appinfo=true&include_played_free&format=json";
 
             WebRequest webRequest = WebRequest.Create(otherGames);
 
@@ -126,7 +126,7 @@ namespace SteamForms
                 JObject jresponse = (JObject)JObject.Parse(strContent)["response"];
                 JArray gamesAsJArray = (JArray)jresponse["games"];
                 Game[] friendGames = (from JToken item in gamesAsJArray
-                         select new Game((int)item["appid"], (int)item["playtime_forever"], 0)).ToArray();
+                         select new Game((int)item["appid"], (string)item["name"], (int)item["playtime_forever"], 0)).ToArray();
 
                 tbxShameUser1.Text = WndwMain.games.Where(g => g.PlaytimeForever == 0).ToArray().Length.ToString();
                 tbxShameUser2.Text = friendGames.Where(g=>g.PlaytimeForever==0).ToArray().Length.ToString();

@@ -23,7 +23,7 @@ namespace SteamForms
 
             foreach(Game game in WndwMain.games)
             {
-                dpdnGame.Items.Add(game.AppId);
+                dpdnGame.Items.Add(game);
             }
 
             dpdnGame.SelectedIndex = 0;
@@ -70,6 +70,6 @@ namespace SteamForms
         private void button1_Click(object sender, EventArgs e) => Close();
 
         private void dpdnGame_SelectedIndexChanged(object sender, EventArgs e) =>
-            LoadGameData((int)dpdnGame.Items[dpdnGame.SelectedIndex]);
+            LoadGameData(((Game)dpdnGame.Items[dpdnGame.SelectedIndex]).AppId);
     }
 }

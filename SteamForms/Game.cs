@@ -9,16 +9,20 @@ namespace SteamForms
         public int PlaytimeForever { get; set; }
         public long RtimeLastPlayed { get; set; } // Unix-Timestamp
 
-        public Game(int appID, int Playtime, long lastPlayed)
+        public string Name { get; set; }
+
+        public Game(int appID, string name, int Playtime, long lastPlayed)
         {
             AppId = appID;
+            Name = name;
             PlaytimeForever = Playtime;
             RtimeLastPlayed = lastPlayed;
         }
 
         public string GetLastPlayedDate() => RtimeLastPlayed == 0 ? "Never" : DateTimeOffset.FromUnixTimeSeconds(RtimeLastPlayed).DateTime.ToString();
         
-        public override string ToString() => $"The Game {AppId} was played {PlaytimeForever / 60f:2}h (Last Played: {GetLastPlayedDate()})";
+        public override string ToString() => Name;
+        public string ToInfoString() => $"The Game {Name}({AppId}) was played {PlaytimeForever / 60f:2}h (Last Played: {GetLastPlayedDate()})";
     }
 
     public class GameComparer : IEqualityComparer<Game>

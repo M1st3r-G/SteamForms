@@ -36,6 +36,7 @@
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnSteam = new System.Windows.Forms.Button();
             this.grpGameinfos = new System.Windows.Forms.GroupBox();
+            this.lblCurrent = new System.Windows.Forms.Label();
             this.tbxDesc = new System.Windows.Forms.TextBox();
             this.tbxGameName = new System.Windows.Forms.TextBox();
             this.picGame = new System.Windows.Forms.PictureBox();
@@ -45,7 +46,7 @@
             this.lblLastPlayed = new System.Windows.Forms.Label();
             this.lblPlaytime = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
-            this.lblCurrent = new System.Windows.Forms.Label();
+            this.rbTop = new System.Windows.Forms.RadioButton();
             this.grpTypeRadio.SuspendLayout();
             this.grpGameinfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGame)).BeginInit();
@@ -64,12 +65,13 @@
             // 
             // grpTypeRadio
             // 
+            this.grpTypeRadio.Controls.Add(this.rbTop);
             this.grpTypeRadio.Controls.Add(this.rbShame);
             this.grpTypeRadio.Controls.Add(this.rbRandom);
             this.grpTypeRadio.Controls.Add(this.rbOld);
             this.grpTypeRadio.Location = new System.Drawing.Point(17, 50);
             this.grpTypeRadio.Name = "grpTypeRadio";
-            this.grpTypeRadio.Size = new System.Drawing.Size(185, 165);
+            this.grpTypeRadio.Size = new System.Drawing.Size(185, 185);
             this.grpTypeRadio.TabIndex = 1;
             this.grpTypeRadio.TabStop = false;
             this.grpTypeRadio.Text = "Funktionsweise";
@@ -143,6 +145,15 @@
             this.grpGameinfos.TabIndex = 4;
             this.grpGameinfos.TabStop = false;
             this.grpGameinfos.Text = "GameInfos";
+            // 
+            // lblCurrent
+            // 
+            this.lblCurrent.AutoSize = true;
+            this.lblCurrent.Location = new System.Drawing.Point(269, 382);
+            this.lblCurrent.Name = "lblCurrent";
+            this.lblCurrent.Size = new System.Drawing.Size(48, 13);
+            this.lblCurrent.TabIndex = 3;
+            this.lblCurrent.Text = "203/204";
             // 
             // tbxDesc
             // 
@@ -232,14 +243,17 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // lblCurrent
+            // rbTop
             // 
-            this.lblCurrent.AutoSize = true;
-            this.lblCurrent.Location = new System.Drawing.Point(269, 382);
-            this.lblCurrent.Name = "lblCurrent";
-            this.lblCurrent.Size = new System.Drawing.Size(48, 13);
-            this.lblCurrent.TabIndex = 3;
-            this.lblCurrent.Text = "203/204";
+            this.rbTop.AutoSize = true;
+            this.rbTop.Location = new System.Drawing.Point(18, 149);
+            this.rbTop.Name = "rbTop";
+            this.rbTop.Size = new System.Drawing.Size(44, 17);
+            this.rbTop.TabIndex = 3;
+            this.rbTop.TabStop = true;
+            this.rbTop.Text = "Top";
+            this.rbTop.UseVisualStyleBackColor = true;
+            this.rbTop.CheckedChanged += new System.EventHandler(this.rbTop_CheckedChanged);
             // 
             // WndwLibrary
             // 
@@ -286,5 +300,6 @@
         private System.Windows.Forms.Label lblPlaytime;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblCurrent;
+        private System.Windows.Forms.RadioButton rbTop;
     }
 }

@@ -12,7 +12,7 @@ namespace SteamForms
     {
         private enum FunctionType
         {
-            Oldie, Random, Shame
+            Oldie, Random, Shame, Top
         }
 
         Random rnd = new Random();
@@ -49,6 +49,14 @@ namespace SteamForms
             long currentUnix = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             currentOptions = WndwMain.games.Where(g => g.PlaytimeForever > minPlayTime && currentUnix - g.RtimeLastPlayed > minPlayOffset).Select(x => (x, rnd.Next())).OrderBy(tuple => tuple.Item2).Select(tuple => tuple.Item1).ToArray();
             
+            currentIndex = 0;
+            SetGameToDisplay(currentOptions[currentIndex]);
+        }
+
+        private void SetTopGameToDisplay() // int amount = 15
+        {
+            currentOptions = WndwMain.games.OrderByDescending(game => game.PlaytimeForever).ToArray(); //.Take(amount)
+
             currentIndex = 0;
             SetGameToDisplay(currentOptions[currentIndex]);
         }
@@ -105,6 +113,13 @@ namespace SteamForms
             if (currentFunctionType == FunctionType.Oldie) return;
             currentFunctionType = FunctionType.Oldie;
             SetRandomOldieGameToDisplay();
+        }
+
+        private void rbTop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (currentFunctionType == FunctionType.Top) return;
+            currentFunctionType = FunctionType.Top;
+            SetTopGameToDisplay();
         }
 
         #endregion
